@@ -1,0 +1,29 @@
+{
+  "name": "braingames224",
+  "version": "1.0.0",
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "babel-cli": "",
+    "babel-core": "",
+    "babel-preset-env": "",
+    "babel-preset-stage-0": ""
+  },
+  "description": "hexlet project 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel-node": "babel-node",
+    "build": "set NODE_ENV=production&&babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "Andrey Kukuruza",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.8"
+  }
+}
