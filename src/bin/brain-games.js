@@ -1,3 +1,4 @@
 #!node.exe
-import {greetings} from '..'
+import greetings from '..';
+
 greetings();
