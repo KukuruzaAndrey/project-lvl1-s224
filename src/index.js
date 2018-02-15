@@ -12,11 +12,11 @@ const even = () => {
   console.log('Welcome to the Brain Games!');
   console.log('Answer "yes" if number even otherwise answer "no".\n');
   const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!\n`);
 
-  let isGameOver = false;
   let countQuestion = 0;
 
-  while (!isGameOver && countQuestion < 3) {
+  while (countQuestion < 3) {
     countQuestion += 1;
     const questionNumber = getRandomInt(1, 100);
     const isEven = questionNumber % 2 === 0;
@@ -24,13 +24,12 @@ const even = () => {
     console.log(`Question: ${questionNumber}`);
     const answer = readlineSync.question('Your answer: ');
 
-    if (!(answer === 'yes' && isEven) && !(answer === 'no' && !isEven)) {
-      isGameOver = true;
-
+    if ((answer === 'yes' && isEven) || (answer === 'no' && !isEven)) {
+      console.log('Correct!');
+    } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${isEven ? 'yes' : 'no'}'.`);
       console.log(`Let's try again, ${name}!`);
-    } else {
-      console.log('Correct!');
+      break;
     }
   }
 
