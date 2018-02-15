@@ -1,4 +1,4 @@
-#!node.exe
+#!/usr/bin/env node
 import greetings from '..';
 
 greetings();
