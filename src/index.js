@@ -8,7 +8,12 @@ const greetings = () => {
 };
 
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-
+const gcd = (a, b) => {
+  if (b === 0) {
+    return a;
+  }
+  return gcd(b, a % b);
+};
 const game = (gameHeader, getStepValues) => () => {
   console.log('Welcome to the Brain Games!');
   console.log(gameHeader);
@@ -18,9 +23,9 @@ const game = (gameHeader, getStepValues) => () => {
 
   let countQuestion = 0;
   while (countQuestion < 3) {
-    const pair = getStepValues();
-    const question = car(pair);
-    const correctAnswer = cdr(pair);
+    const values = getStepValues();
+    const question = car(values);
+    const correctAnswer = cdr(values);
     countQuestion += 1;
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
@@ -39,4 +44,4 @@ const game = (gameHeader, getStepValues) => () => {
 };
 
 export default greetings;
-export { game, getRandomInt };
+export { game, getRandomInt, gcd };
