@@ -1,3 +1,4 @@
+import { car, cdr } from 'hexlet-pairs';
 import readlineSync from 'readline-sync';
 
 const greetings = () => {
@@ -11,16 +12,19 @@ const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min
 const game = (gameHeader, getStepValues) => () => {
   console.log('Welcome to the Brain Games!');
   console.log(gameHeader);
+  console.log();
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!\n`);
 
   let countQuestion = 0;
   while (countQuestion < 3) {
-    const { question, condition, correctAnswer } = getStepValues();
+    const pair = getStepValues();
+    const question = car(pair);
+    const correctAnswer = cdr(pair);
     countQuestion += 1;
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (condition(userAnswer)) {
+    if (correctAnswer === userAnswer) {
       console.log('Correct!');
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);

@@ -31,6 +31,7 @@
   "author": "Andrey Kukuruza",
   "license": "ISC",
   "dependencies": {
+    "hexlet-pairs": "^1.0.5",
     "readline-sync": "^1.4.8"
   }
 }

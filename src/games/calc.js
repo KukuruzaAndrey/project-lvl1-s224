@@ -1,6 +1,7 @@
+import { cons } from 'hexlet-pairs';
 import { getRandomInt, game } from '../index';
 
-const gameHeader = 'What is the result of the expression?\n';
+const gameHeader = 'What is the result of the expression?';
 
 const getStepValues = () => {
   const numberOfSign = getRandomInt(0, 3);
@@ -9,29 +10,17 @@ const getStepValues = () => {
   const signs = '+-*';
   const sign = signs[numberOfSign];
 
-  const stepValues = {};
-  stepValues.question = `${a} ${sign} ${b}`;
-  stepValues.condition = (userAnswer) => {
-    let condition;
-    if (sign === '+') {
-      condition = a + b === Number(userAnswer);
-    } else if (sign === '-') {
-      condition = a - b === Number(userAnswer);
-    } else if (sign === '*') {
-      condition = a * b === Number(userAnswer);
-    }
-    return condition;
-  };
-
+  const question = `${a} ${sign} ${b}`;
+  let correctAnswer;
   if (sign === '+') {
-    stepValues.correctAnswer = a + b;
+    correctAnswer = a + b;
   } else if (sign === '-') {
-    stepValues.correctAnswer = a - b;
+    correctAnswer = a - b;
   } else if (sign === '*') {
-    stepValues.correctAnswer = a * b;
+    correctAnswer = a * b;
   }
 
-  return stepValues;
+  return cons(question, String(correctAnswer));
 };
 
 const calc = game(gameHeader, getStepValues);
