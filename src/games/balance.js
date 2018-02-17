@@ -1,9 +1,9 @@
 import { cons } from 'hexlet-pairs';
-import { getRandomInt, game, getBalanceNumber } from '../index';
+import { getRandomInt, game, getBalanceNumber } from '..';
 
 const gameHeader = 'Balance the given number.';
 
-const getStepValues = () => {
+const generator = () => {
   const number = getRandomInt(1, 10000);
 
   const question = `${number}`;
@@ -13,6 +13,6 @@ const getStepValues = () => {
   return cons(question, String(correctAnswer));
 };
 
-const balance = game(gameHeader, getStepValues);
+const balance = game(gameHeader, generator);
 export default balance;
 

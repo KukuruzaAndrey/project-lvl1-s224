@@ -3,7 +3,7 @@ import { getRandomInt, game } from '../index';
 
 const gameHeader = 'What is the result of the expression?';
 
-const getStepValues = () => {
+const generator = () => {
   const numberOfSign = getRandomInt(0, 3);
   const a = getRandomInt(1, 50);
   const b = getRandomInt(1, 50);
@@ -23,6 +23,6 @@ const getStepValues = () => {
   return cons(question, String(correctAnswer));
 };
 
-const calc = game(gameHeader, getStepValues);
+const calc = game(gameHeader, generator);
 export default calc;
 

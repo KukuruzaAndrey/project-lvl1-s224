@@ -3,7 +3,7 @@ import { getRandomInt, game } from '../index';
 
 const gameHeader = 'Answer "yes" if number even otherwise answer "no".';
 
-const getStepValues = () => {
+const generator = () => {
   const number = getRandomInt(1, 100);
   const isEven = number % 2 === 0;
 
@@ -12,5 +12,5 @@ const getStepValues = () => {
   return cons(question, correctAnswer);
 };
 
-const even = game(gameHeader, getStepValues);
+const even = game(gameHeader, generator);
 export default even;
