@@ -14,6 +14,29 @@ const gcd = (a, b) => {
   }
   return gcd(b, a % b);
 };
+const getBalanceNumber = (number) => {
+  const strNumber = String(number);
+  const numberLength = strNumber.length;
+
+  let sumDigits = 0;
+  for (let i = 0; i < numberLength; i += 1) {
+    sumDigits += Number(strNumber[i]);
+  }
+  const normalizedDigit = Math.floor(sumDigits / numberLength);
+  let balanceNumStr = String(normalizedDigit).repeat(numberLength);
+  let balanceNum = Number(balanceNumStr);
+
+  const countRemainingGigits = normalizedDigit === 0 ? sumDigits : sumDigits % numberLength;
+  for (let i = 0; i < countRemainingGigits; i += 1) {
+    balanceNum += 10 ** i;
+  }
+  balanceNumStr = String(balanceNum);
+  const countZeros = numberLength - balanceNumStr.length;
+  for (let i = 0; i < countZeros; i += 1) {
+    balanceNumStr = `0${balanceNumStr}`;
+  }
+  return balanceNumStr;
+};
 const game = (gameHeader, getStepValues) => () => {
   console.log('Welcome to the Brain Games!');
   console.log(gameHeader);
@@ -44,4 +67,4 @@ const game = (gameHeader, getStepValues) => () => {
 };
 
 export default greetings;
-export { game, getRandomInt, gcd };
+export { game, getRandomInt, gcd, getBalanceNumber };
