@@ -26,8 +26,8 @@ const getBalanceNumber = (number) => {
   let balanceNumStr = String(normalizedDigit).repeat(numberLength);
   let balanceNum = Number(balanceNumStr);
 
-  const countRemainingGigits = normalizedDigit === 0 ? sumDigits : sumDigits % numberLength;
-  for (let i = 0; i < countRemainingGigits; i += 1) {
+  const countRemainingDigits = normalizedDigit === 0 ? sumDigits : sumDigits % numberLength;
+  for (let i = 0; i < countRemainingDigits; i += 1) {
     balanceNum += 10 ** i;
   }
   balanceNumStr = String(balanceNum);
