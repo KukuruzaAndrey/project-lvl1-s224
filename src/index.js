@@ -8,12 +8,14 @@ const greetings = () => {
 };
 
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+
 const gcd = (a, b) => {
   if (b === 0) {
     return a;
   }
   return gcd(b, a % b);
 };
+
 const getBalanceNumber = (number) => {
   const strNumber = String(number);
   const numberLength = strNumber.length;
@@ -37,6 +39,9 @@ const getBalanceNumber = (number) => {
   }
   return balanceNumStr;
 };
+
+const getMemberAP = (initial, difference, number) => initial + ((number - 1) * difference);
+
 const game = (gameHeader, getStepValues) => () => {
   console.log('Welcome to the Brain Games!');
   console.log(gameHeader);
@@ -67,4 +72,4 @@ const game = (gameHeader, getStepValues) => () => {
 };
 
 export default greetings;
-export { game, getRandomInt, gcd, getBalanceNumber };
+export { game, getRandomInt, gcd, getBalanceNumber, getMemberAP };
