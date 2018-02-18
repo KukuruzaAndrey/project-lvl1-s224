@@ -5,10 +5,9 @@ const gameHeader = 'Answer "yes" if number even otherwise answer "no".';
 
 const generator = () => {
   const number = getRandomInt(1, 100);
-  const isEven = number % 2 === 0;
 
   const question = `${number}`;
-  const correctAnswer = isEven ? 'yes' : 'no';
+  const correctAnswer = number % 2 === 0 ? 'yes' : 'no';
   return cons(question, correctAnswer);
 };
 

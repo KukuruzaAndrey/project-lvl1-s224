@@ -42,6 +42,14 @@ const getBalanceNumber = (number) => {
 
 const getMemberAP = (initial, difference, number) => initial + ((number - 1) * difference);
 
+const isPrime = (number) => {
+  if (number < 2) return false;
+  for (let i = 2; i < Math.sqrt(number); i += 1) {
+    if (number % i === 0) return false;
+  }
+  return true;
+};
+
 const game = (gameHeader, getStepValues) => () => {
   console.log('Welcome to the Brain Games!');
   console.log(gameHeader);
@@ -72,4 +80,4 @@ const game = (gameHeader, getStepValues) => () => {
 };
 
 export default greetings;
-export { game, getRandomInt, gcd, getBalanceNumber, getMemberAP };
+export { game, getRandomInt, gcd, getBalanceNumber, getMemberAP, isPrime };
